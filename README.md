@@ -1,7 +1,6 @@
 # GitHub Action for NPM (with cypress.io dependencies)
-## _Not working yet_
 
-This Action for [npm](https://www.npmjs.com/) enables arbitrary actions with the `npm` command-line client, including testing packages and publishing to a registry.
+This Action for [npm](https://www.npmjs.com/) enables arbitrary actions with the `npm` command-line client, including testing with cypress.io and publishing to a registry.
 
 ## Usage
 
@@ -24,18 +23,10 @@ action "Test" {
   args = "test"
 }
 
-# Filter for a new tag
-action "Tag" {
-  needs = "Test"
-  uses = "actions/bin/filter@master"
-  args = "tag"
-}
-
-action "Publish" {
-  needs = "Tag"
-  uses = "actions/npm@master"
-  args = "publish --access public"
-  secrets = ["NPM_AUTH_TOKEN"]
+action "E2E Tests" {
+  uses = "bartlett705/npm-cy@f69478046d80aef1be0e17582c189a59bbfc9aa1"
+  needs = ["Unit Tests"]
+  args = "run cy:run"
 }
 ```
 
