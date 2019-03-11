@@ -1,4 +1,4 @@
-# GitHub Action for NPM
+# GitHub Action for NPM (with cypress.io dependencies)
 
 This Action for [npm](https://www.npmjs.com/) enables arbitrary actions with the `npm` command-line client, including testing packages and publishing to a registry.
 
