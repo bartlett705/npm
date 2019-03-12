@@ -1,4 +1,4 @@
-FROM cypress/base:10
+FROM node:10
 
 LABEL version="1.0.0"
 LABEL repository="http://github.com/bartlett705/npm-cy"
